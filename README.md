@@ -1,3 +1,1 @@
-# test
-
-This is a lovely new document that is used for training purposes.
+Hello world! This is a new update in the Readme file. Yada yada.
