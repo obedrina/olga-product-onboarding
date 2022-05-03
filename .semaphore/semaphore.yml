@@ -9,7 +9,8 @@ blocks:
     task:
       jobs:
         - name: Bundle
-          commands: []
+          commands:
+            - dfgsv
     dependencies: []
   - name: Unit tests
     dependencies:
