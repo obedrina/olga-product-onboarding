@@ -9,7 +9,8 @@ blocks:
     task:
       jobs:
         - name: Bundle
-          commands: []
+          commands:
+            - echo test
     dependencies: []
   - name: Unit tests
     dependencies:
@@ -40,7 +41,8 @@ promotions:
   - name: Production deploy
     pipeline_file: pipeline_2.yml
     auto_promote:
-      when: branch = 'master' AND result = 'passed'
-  - name: Fantastic deployment
+      when: branch = 'main' AND result = 'passed'
+  - name: Deploy to staging
     pipeline_file: pipeline_3.yml
-    
+    auto_promote:
+      when: branch = 'dev' AND result = 'passed'
