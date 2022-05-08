@@ -40,6 +40,15 @@ blocks:
 promotions:
   - name: Production deploy
     pipeline_file: pipeline_2.yml
+    parameters: 
+      env_vars: 
+        - required: true
+          options:
+            - Stage
+            - Production
+          default_value: Stage
+          description: Where to deploy?
+          name: ENVIRONMENT
     auto_promote:
       when: branch = 'main' AND result = 'passed'
   - name: Deploy to staging
