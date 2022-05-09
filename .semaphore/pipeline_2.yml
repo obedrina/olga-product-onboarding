@@ -1,5 +1,5 @@
 version: v1.0
-name: 'Deploy to ${{parameters.ENVIRONMENT}} for ${{parameters.RANDOM}}'
+name: 'Deploy to ${{parameters.ENVIRONMENT}} for ${{parameters.NEW_STR}}'
 agent:
   machine:
     type: e1-standard-2
