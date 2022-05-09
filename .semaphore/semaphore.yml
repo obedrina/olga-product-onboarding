@@ -52,6 +52,10 @@ promotions:
           default_value: Stage
           description: Where to deploy?
           name: ENVIRONMENT
+        - required: false
+          options: []
+          description: Random string
+          name: RANDOM
     auto_promote:
       when: branch = 'main' AND result = 'passed'
   - name: Deploy to staging
