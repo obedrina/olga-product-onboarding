@@ -4,8 +4,8 @@ agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu2004
-auto_cancel:
-  queued:
+fail_fast:
+  stop:
     when: "branch != 'master'"
 blocks:
   - name: Install deps
