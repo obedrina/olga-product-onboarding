@@ -6,7 +6,7 @@ agent:
     os_image: ubuntu2004
 auto_cancel:
   queued:
-    when: 'true'
+    when: "branch != 'master'"
 blocks:
   - name: Install deps
     task:
