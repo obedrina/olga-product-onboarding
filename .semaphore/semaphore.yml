@@ -6,10 +6,10 @@ agent:
     os_image: ubuntu2004
 auto_cancel:
   queued:
-    when: "true"
+    when: 'true'
 fail_fast:
   stop:
-    when: "branch != 'master'"
+    when: branch != 'master'
 blocks:
   - name: Install deps
     task:
@@ -35,14 +35,16 @@ blocks:
           commands:
             - sadsdaf
         - name: 'Job #2'
-          commands: []
+          commands:
+            - sleep 120
   - name: Acceptance tests
     dependencies:
       - Unit tests
     task:
       jobs:
         - name: Cucumber
-          commands: []
+          commands:
+            - sleep 120
           parallelism: 7
 promotions:
   - name: Production deploy
