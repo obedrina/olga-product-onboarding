@@ -9,7 +9,7 @@ auto_cancel:
     when: 'true'
 fail_fast:
   stop:
-    when: branch != 'master'
+    when: 'true'
 blocks:
   - name: Install deps
     task:
@@ -33,10 +33,10 @@ blocks:
       jobs:
         - name: Lint
           commands:
-            - sadsdaf
+            - echo
         - name: 'Job #2'
           commands:
-            - sleep 120
+            - sleep 180
   - name: Acceptance tests
     dependencies:
       - Unit tests
@@ -44,7 +44,7 @@ blocks:
       jobs:
         - name: Cucumber
           commands:
-            - sleep 120
+            - sleep 180
           parallelism: 7
 promotions:
   - name: Production deploy
