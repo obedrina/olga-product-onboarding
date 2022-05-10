@@ -3,13 +3,10 @@ name: Initial Pipeline
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu2004    
+    os_image: ubuntu2004
 auto_cancel:
   queued:
-    when: "true"    
-fail_fast:
-  stop:
-    when: "true"   
+    when: 'true'
 blocks:
   - name: Install deps
     task:
@@ -24,7 +21,8 @@ blocks:
     task:
       jobs:
         - name: RSpec
-          commands: []
+          commands:
+            - dfsf
           parallelism: 5
   - name: Static analysis
     dependencies:
@@ -46,12 +44,12 @@ blocks:
 promotions:
   - name: Production deploy
     pipeline_file: pipeline_2.yml
-    parameters: 
-      env_vars: 
+    parameters:
+      env_vars:
         - required: false
           options: []
           description: Random string
-          name: NEW_STR      
+          name: NEW_STR
         - required: true
           options:
             - Stage
