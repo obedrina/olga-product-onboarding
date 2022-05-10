@@ -21,8 +21,7 @@ blocks:
     task:
       jobs:
         - name: RSpec
-          commands:
-            - dfsf
+          commands: []
           parallelism: 5
   - name: Static analysis
     dependencies:
@@ -30,7 +29,8 @@ blocks:
     task:
       jobs:
         - name: Lint
-          commands: []
+          commands:
+            - sadsdaf
         - name: 'Job #2'
           commands: []
   - name: Acceptance tests
