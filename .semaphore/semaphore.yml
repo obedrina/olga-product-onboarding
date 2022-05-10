@@ -16,7 +16,9 @@ blocks:
       jobs:
         - name: Bundle
           commands:
-            - echo test
+            - ls -l
+            - echo test > olga.txt
+            - ls -l
     dependencies: []
   - name: Unit tests
     dependencies:
