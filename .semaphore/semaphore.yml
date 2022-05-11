@@ -38,7 +38,7 @@ blocks:
             - echo
         - name: 'Job #2'
           commands:
-            - sleep 180
+            - sleep 10
   - name: Acceptance tests
     dependencies:
       - Unit tests
@@ -46,12 +46,13 @@ blocks:
       jobs:
         - name: Cucumber
           commands:
-            - sleep 180
+            - sleep 10
           parallelism: 7
       epilogue:
         always:
           commands:
-            - artifact push job *.png
+            - artifact push workflow home_page.png
+            - artifact push workflow product_page.png
 promotions:
   - name: Production deploy
     pipeline_file: pipeline_2.yml
