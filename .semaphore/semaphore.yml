@@ -54,6 +54,17 @@ blocks:
           commands:
             - artifact push workflow home_page.png
             - artifact push workflow product_page.png
+  - name: Fetch artifacts
+    dependencies:
+      - Acceptance tests
+    task:
+      jobs:
+        - name: Home page
+          commands:
+            - artifact pull workflow home_page.png
+        - name: Product page
+          commands:
+            - artifact pull workflow product_page.png
 promotions:
   - name: Production deploy
     pipeline_file: pipeline_2.yml
