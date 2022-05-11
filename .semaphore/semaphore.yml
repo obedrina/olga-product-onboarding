@@ -46,6 +46,7 @@ blocks:
       jobs:
         - name: Cucumber
           commands:
+            - checkout
             - sleep 10
           parallelism: 7
       epilogue:
