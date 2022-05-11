@@ -27,7 +27,7 @@ blocks:
       jobs:
         - name: RSpec
           commands: []
-          parallelism: 5
+          parallelism: 3
   - name: Static analysis
     dependencies:
       - Unit tests
@@ -48,7 +48,7 @@ blocks:
           commands:
             - checkout
             - sleep 10
-          parallelism: 7
+          parallelism: 3
       epilogue:
         always:
           commands:
