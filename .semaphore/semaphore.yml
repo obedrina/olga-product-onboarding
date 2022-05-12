@@ -49,22 +49,6 @@ blocks:
             - checkout
             - sleep 10
           parallelism: 3
-      epilogue:
-        always:
-          commands:
-            - artifact push workflow home_page.png
-            - artifact push workflow product_page.png
-  - name: Fetch artifacts
-    dependencies:
-      - Acceptance tests
-    task:
-      jobs:
-        - name: Home page
-          commands:
-            - artifact pull workflow home_page.png
-        - name: Product page
-          commands:
-            - artifact pull workflow product_page.png
   - name: Make screenshot
     dependencies:
       - Install deps
@@ -73,8 +57,8 @@ blocks:
         - name: 'Job #1'
           commands:
             - pwd
-            - '/usr/bin/google-chrome --headless --screenshot="home_1.png" "https://semaphoreci.com"'
-            - artifact push workflow home_1.png
+            - '/usr/bin/google-chrome --headless --screenshot="home_2.png" "https://semaphoreci.com"'
+            - artifact push workflow home_2.png
   - name: Fetch artifact
     dependencies:
       - Make screenshot
@@ -82,7 +66,7 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
-            - artifact pull workflow home_1.png
+            - artifact pull workflow home_2.png
 promotions:
   - name: Production deploy
     pipeline_file: pipeline_2.yml
