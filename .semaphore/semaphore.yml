@@ -26,10 +26,7 @@ blocks:
     task:
       jobs:
         - name: RSpec
-          commands:
-            - pwd
-            - '/usr/bin/google-chrome --headless --screenshot="home.png" "https://semaphore.com"'
-            - artifact push workflow home.png
+          commands: []
           parallelism: 3
   - name: Static analysis
     dependencies:
@@ -68,6 +65,24 @@ blocks:
         - name: Product page
           commands:
             - artifact pull workflow product_page.png
+  - name: Make screenshot
+    dependencies:
+      - Install deps
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - pwd
+            - '/usr/bin/google-chrome --headless --screenshot="home_1.png" "https://semaphore.com"'
+            - artifact push workflow home.png
+  - name: Fetch artifact
+    dependencies:
+      - Make screenshot
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - artifact pull workflow home_1.png
 promotions:
   - name: Production deploy
     pipeline_file: pipeline_2.yml
