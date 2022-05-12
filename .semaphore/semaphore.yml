@@ -27,8 +27,7 @@ blocks:
       jobs:
         - name: RSpec
           commands:
-            - which google-chrome
-            - /usr/bin/google-chrome
+            - '/usr/bin/google-chrome --headless --screenshot="home.png" "https://semaphore.com"'
           parallelism: 3
   - name: Static analysis
     dependencies:
