@@ -26,7 +26,9 @@ blocks:
     task:
       jobs:
         - name: RSpec
-          commands: []
+          commands:
+            - which google-chrome
+            - /usr/bin/google-chrome
           parallelism: 3
   - name: Static analysis
     dependencies:
