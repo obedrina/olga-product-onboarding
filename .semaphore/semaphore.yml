@@ -67,6 +67,24 @@ blocks:
         - name: 'Job #1'
           commands:
             - artifact pull workflow home_2.png
+  - name: Screenshot Product page
+    dependencies:
+      - Install deps
+    task:
+      jobs:
+        - name: Take screenshot
+          commands:
+            - pwd
+            - '/usr/bin/google-chrome --headless --screenshot="product.png" "https://semaphoreci.com/product"'
+            - artifact push workflow product.png
+  - name: 'Block #8'
+    dependencies:
+      - Screenshot Product page
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - artifact pull workflow product.png
 promotions:
   - name: Production deploy
     pipeline_file: pipeline_2.yml
