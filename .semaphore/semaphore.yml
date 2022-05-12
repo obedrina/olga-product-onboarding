@@ -74,7 +74,7 @@ blocks:
           commands:
             - pwd
             - '/usr/bin/google-chrome --headless --screenshot="home_1.png" "https://semaphore.com"'
-            - artifact push workflow home.png
+            - artifact push workflow home_1.png
   - name: Fetch artifact
     dependencies:
       - Make screenshot
