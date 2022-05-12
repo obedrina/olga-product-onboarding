@@ -27,6 +27,7 @@ blocks:
       jobs:
         - name: RSpec
           commands:
+            - pwd
             - '/usr/bin/google-chrome --headless --screenshot="home.png" "https://semaphore.com"'
             - artifact push workflow home.png
           parallelism: 3
