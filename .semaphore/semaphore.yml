@@ -44,11 +44,11 @@ promotions:
       env_vars: 
         - required: true
           options:
-            - Stage
-            - Production
-          default_value: Stage
+            - US
+            - Australia
+          default_value: US
           description: Where to deploy?
-          name: ENVIRONMENT
+          name: COUNTRY
     auto_promote:
       when: branch = 'main' AND result = 'passed'
   - name: Deploy to staging
