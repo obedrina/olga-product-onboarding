@@ -49,6 +49,13 @@ promotions:
           default_value: US
           description: Where to deploy?
           name: COUNTRY
+        - required: true
+          options:
+            - Canary
+            - Full
+          default_value: Canary
+          description: Type of release
+          name: RELEASE
     auto_promote:
       when: branch = 'main' AND result = 'passed'
   - name: Deploy to staging
