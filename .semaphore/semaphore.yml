@@ -77,7 +77,7 @@ blocks:
             - pwd
             - '/usr/bin/google-chrome --headless --screenshot="product.png" "https://semaphoreci.com/product"'
             - artifact push workflow product.png
-  - name: 'Block #8'
+  - name: Pull screenshot
     dependencies:
       - Screenshot Product page
     task:
