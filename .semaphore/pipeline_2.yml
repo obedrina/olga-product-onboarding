@@ -1,5 +1,5 @@
 version: v1.0
-name: '${{parameters.COUNTRY}}'
+name: '${{parameters.RELEASE}} to ${{parameters.COUNTRY}}'
 agent:
   machine:
     type: e1-standard-2
@@ -12,3 +12,4 @@ blocks:
           commands:
             - echo "job 1"
             - echo $COUNTRY
+            - echo $RELEASE
