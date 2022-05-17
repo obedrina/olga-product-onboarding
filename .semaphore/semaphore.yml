@@ -46,6 +46,9 @@ promotions:
           options:
             - US
             - Australia
+            - Cook Islands
+            - Tasmania
+            - Montenegro
           default_value: US
           description: Where to deploy?
           name: COUNTRY
