@@ -50,16 +50,16 @@ blocks:
         - sem-version java $JAVA_VERSION
         - java -version
       - name: "Job matrix"
-       task:
-         jobs:
-         - name: Matrix
-           matrix:
-             - env_var: FOO
-               values: [ "A", "B", "C" ]
-             - env_var: BAR
-               values: [ "1", "2", "3" ]
-           commands:
-             - echo FOO=$FOO BAR=$BAR
+        task:
+          jobs:
+          - name: Matrix
+            matrix:
+              - env_var: FOO
+                values: [ "A", "B", "C" ]
+              - env_var: BAR
+                values: [ "1", "2", "3" ]
+            commands:
+              - echo FOO=$FOO BAR=$BAR
 promotions:
   - name: Production deploy
     pipeline_file: pipeline_2.yml
