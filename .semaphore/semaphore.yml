@@ -60,6 +60,7 @@ blocks:
             values: [ "1", "2", "3" ]
         commands:
           - echo FOO=$FOO BAR=$BAR
+    dependencies: []
 promotions:
   - name: Production deploy
     pipeline_file: pipeline_2.yml
