@@ -11,6 +11,10 @@ blocks:
         - name: Bundle
           commands:
             - echo test
+            - cache store
+      prologue:
+        commands:
+          - cache restore
     dependencies: []
   - name: Unit tests
     dependencies:
@@ -42,30 +46,38 @@ blocks:
       - Unit tests
     task:
       jobs:
-      - name: Java versions
-        matrix:
-          - env_var: JAVA_VERSION
-            values: [ "11", "17" ]
-        commands:
-        - sem-version java $JAVA_VERSION
-        - java -version
-  - name: "Job matrix"
+        - name: Java versions
+          matrix:
+            - env_var: JAVA_VERSION
+              values:
+                - '11'
+                - '17'
+          commands:
+            - sem-version java $JAVA_VERSION
+            - java -version
+  - name: Job matrix
     task:
       jobs:
-      - name: Matrix
-        matrix:
-          - env_var: FOO
-            values: [ "A", "B", "C" ]
-          - env_var: BAR
-            values: [ "1", "2", "3" ]
-        commands:
-          - echo FOO=$FOO BAR=$BAR
+        - name: Matrix
+          matrix:
+            - env_var: FOO
+              values:
+                - A
+                - B
+                - C
+            - env_var: BAR
+              values:
+                - '1'
+                - '2'
+                - '3'
+          commands:
+            - echo FOO=$FOO BAR=$BAR
     dependencies: []
 promotions:
   - name: Production deploy
     pipeline_file: pipeline_2.yml
-    parameters: 
-      env_vars: 
+    parameters:
+      env_vars:
         - required: true
           options:
             - US

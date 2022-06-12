@@ -8,7 +8,7 @@ blocks:
   - name: 'Block #1'
     task:
       jobs:
-        - name: 'job $COUNTRY'
+        - name: job $COUNTRY
           commands:
             - echo "job 1"
             - echo "$COUNTRY"
