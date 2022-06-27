@@ -52,6 +52,10 @@ blocks:
               values:
                 - '11'
                 - '17'
+            - env_var: BAR
+              values:
+                - value1
+                - value2
           commands:
             - sem-version java $JAVA_VERSION
             - java -version
