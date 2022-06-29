@@ -23,7 +23,7 @@ blocks:
       jobs:
         - name: RSpec
           commands: []
-          parallelism: 5
+          parallelism: 2
   - name: Static analysis
     dependencies:
       - Unit tests
@@ -40,7 +40,7 @@ blocks:
       jobs:
         - name: Cucumber
           commands: []
-          parallelism: 7
+          parallelism: 3
   - name: Java versions
     dependencies:
       - Unit tests
@@ -52,31 +52,9 @@ blocks:
               values:
                 - '11'
                 - '17'
-            - env_var: BAR
-              values:
-                - value1
-                - value2
           commands:
             - sem-version java $JAVA_VERSION
             - java -version
-  - name: Job matrix
-    task:
-      jobs:
-        - name: Matrix
-          matrix:
-            - env_var: FOO
-              values:
-                - A
-                - B
-                - C
-            - env_var: BAR
-              values:
-                - '1'
-                - '2'
-                - '3'
-          commands:
-            - echo FOO=$FOO BAR=$BAR
-    dependencies: []
 promotions:
   - name: Production deploy
     pipeline_file: pipeline_2.yml
