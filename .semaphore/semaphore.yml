@@ -41,20 +41,6 @@ blocks:
         - name: Cucumber
           commands: []
           parallelism: 3
-  - name: Java versions
-    dependencies:
-      - Unit tests
-    task:
-      jobs:
-        - name: Java versions
-          matrix:
-            - env_var: JAVA_VERSION
-              values:
-                - '11'
-                - '17'
-          commands:
-            - sem-version java $JAVA_VERSION
-            - java -version
 promotions:
   - name: Production deploy
     pipeline_file: pipeline_2.yml
