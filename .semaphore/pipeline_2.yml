@@ -11,5 +11,4 @@ blocks:
         - name: Country job
           commands:
             - echo "job 1"
-            - fdfafsa
             - echo $RELEASE
